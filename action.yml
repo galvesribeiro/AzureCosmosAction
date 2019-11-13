@@ -1,0 +1,19 @@
+name: 'Azure Cosmos Emulator'
+description: 'Start Azure Cosmos emulator'
+author: 'Gutemberg Ribeiro (@galvesribeiro)'
+branding:
+  icon: 'database'  
+  color: 'gray-dark'
+runs:
+  using: 'docker'
+  image: 'docker://microsoft/azure-cosmosdb-emulator'
+  args:
+    - '--name'
+    - 'cosmosdb'
+    - '--memory'
+    - '2GB'
+    - '--mount'
+    - 'type=bind,source=%LOCALAPPDATA%\,destination=C:\CosmosDB.Emulator\bind-mount'
+    - '-P'
+    - '--interactive'
+    - '--tty'
